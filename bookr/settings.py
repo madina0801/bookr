@@ -47,7 +47,7 @@ ROOT_URLCONF = 'bookr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'my_templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
