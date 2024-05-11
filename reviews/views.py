@@ -33,3 +33,14 @@ def book_list(request):
 
     context = {"book_list": book_list}
     return render(request, "reviews/book_list.html", context)
+
+def book_detail(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    reviews = book.review_set.all()
+    if reviews:
+        book_rating = avg_rating([review.rating for review in reviews])
+        context = {"book": book, "book_rating": book_rating, "reviews": reviews}
+    else:
+        context = {"book": book, "book_rating": None, "reviews": None}
+    
+    return render(request, "reviews/book-detail.html", context)
