@@ -9,7 +9,7 @@ def index(request):
 
 def search(request):
     search_text = request.GET.get("search", "")
-    return render(request, "reviews/search-results.html", {"search_text": search_text})
+    return render(request, "reviews/search-result.html", {"search_text": search_text})
 
 
 def book_list(request):
